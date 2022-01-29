@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-               git branch: 'main', url: 'https://github.com/DiSwami/Devops-Php-Project.git'
+               git branch: 'main', url: 'https://github.com/DiSwami/Edureka_Devops_Project.git'
             }
         }
         stage('Docker Build'){
