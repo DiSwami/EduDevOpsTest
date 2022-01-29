@@ -1,5 +1,29 @@
 ---
 #Ansible Playbook to build and run a Docker container
+
+
+- name: Playbook to install python 3
+  hosts: test_server
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Install python 3.6 and pip3
+      yum:
+        name:
+          - python36
+          - libselinux-python
+        state: present
+
+    - name: Install SELinux for Python 3
+      pip:
+        name:
+          - selinux
+        state: present
+        executable: pip3
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
+
  
 - name: Playbook to build and run Docker
   hosts: test_server
